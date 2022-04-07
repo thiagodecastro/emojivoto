@@ -144,8 +144,8 @@ connect_to_k8s() {
         demo_cluster_url="https://beta-auth.datawire.io/api/democlusters/telepresence-demo/config"
     fi
     demo_cluster_info=$(curl -H "X-Ambassador-API-Key:$AMBASSADOR_API_KEY" $demo_cluster_url -s)
-    echo "$demo_cluster_info" > ./emojivoto_k8s_context.yaml
-    export KUBECONFIG=./emojivoto_k8s_context.yaml
+    echo "$demo_cluster_info" > /Users/decastrt/try/emojivoto/emojivoto-web-app/js/emojivoto_k8s_context.yaml
+    export KUBECONFIG=/Users/decastrt/try/emojivoto/emojivoto-web-app/js/emojivoto_k8s_context.yaml
     kubectl config set-context --current --namespace=emojivoto
 
     echo "Listing services in ${EMOJIVOTO_NS} namespace"
@@ -181,7 +181,7 @@ install_upgrade_telepresence() {
 }
 
 connect_local_dev_env_to_remote() {
-    export KUBECONFIG=./emojivoto_k8s_context.yaml
+    export KUBECONFIG=/Users/decastrt/try/emojivoto/emojivoto-web-app/js/emojivoto_k8s_context.yaml
     display_step 6
     echo 'Connecting local development environment to remote K8s cluster'
     telepresence quit
@@ -211,7 +211,7 @@ display_instructions_to_user () {
     echo 'INSTRUCTIONS FOR DEVELOPMENT'
     echo '============================'
     echo 'To set the correct Kubernetes context on this shell, please execute:'
-    echo 'export KUBECONFIG=./emojivoto_k8s_context.yaml'
+    echo 'export KUBECONFIG=/Users/decastrt/try/emojivoto/emojivoto-web-app/js/emojivoto_k8s_context.yaml'
 }
 
 use_telemetry

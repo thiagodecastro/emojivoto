@@ -104,7 +104,7 @@ export default class Vote extends React.Component {
       let contents = (
         <div>
           <h1>EMOJI VOTE</h1>
-          <p>Tap to vote for your favorite emoji below</p>
+          <p>OLA</p>
           {this.renderLeaderboardLink()}
           {!_.isEmpty(emojiList) ? null : <div>Loading emoji...</div>}
 
